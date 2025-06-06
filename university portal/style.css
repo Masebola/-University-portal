@@ -1,0 +1,1095 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  --bg-color: #1f242d;
+  --second-bg-color: #323946;
+  --text-color: #fff;
+  --main-color: #0ef;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+section {
+  padding: 10rem 9% 2rem;
+}
+
+/* Add custom styles for header, home, about, etc. Here are some samples: */
+
+.header {
+  position: fixed;
+  width: 100%;
+  background: var(--bg-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 9%;
+  z-index: 100;
+  transition: background 0.3s ease; /* Added for sticky effect */
+}
+
+.header.sticky { /* For sticky header */
+  background: rgba(31, 36, 45, 0.9); /* Slightly transparent */
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.header .logo {
+  font-size: 2.5rem;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.navbar a {
+  font-size: 1.7rem;
+  color: var(--text-color);
+  margin-left: 4rem;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  color: var(--main-color);
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2.8rem;
+  background: var(--main-color);
+  color: var(--bg-color);
+  font-size: 1.6rem;
+  border-radius: 4rem;
+  margin-top: 2rem;
+  transition: .3s ease;
+}
+
+.btn:hover {
+  box-shadow: 0 0 1rem var(--main-color);
+}
+.profile-img { /* Not used in this portal, but kept from original */
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--main-color);
+  box-shadow: 0 0 20px rgba(0, 238, 255, 0.5);
+}
+.about-img { /* Not used in this portal, but kept from original */
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--main-color);
+  box-shadow: 0 0 20px rgba(0, 238, 255, 0.5);
+}
+.about {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  flex-direction: column; /* Ensure it stacks on smaller screens */
+  text-align: center;
+}
+.about .content {
+  max-width: 600px;
+}
+.social-media { /* Not used in this portal, but kept from original */
+  display: flex;
+  gap: 2rem;
+}
+.social-media a { /* Not used in this portal, but kept from original */
+  color: lightskyblue;
+  font-size: 2.5rem;
+  transition: color 0.3s ease;
+}
+.social-media a:hover { /* Not used in this portal, but kept from original */
+  color: var(--main-color);
+}
+
+/* Services Section (renamed to portal-section-container for reusability) */
+.portal-section-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.services-box { /* Renamed to .feature-box for specific use in about section */
+  background: var(--second-bg);
+  padding: 3rem 2rem;
+  border-radius: 2rem;
+  text-align: center;
+  border: .2rem solid var(--bg-color);
+  transition: .5s ease;
+}
+
+.services-box:hover {
+  border-color: var(--main-color);
+  transform: scale(1.02);
+}
+
+.services-box i {
+  font-size: 5rem;
+  color: var(--main-color);
+  margin-bottom: 1rem;
+}
+
+.skills-used { /* Not used in this portal, but kept from original */
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.skills-used span { /* Not used in this portal, but kept from original */
+  background: rgba(0, 238, 255, 0.2);
+  padding: .3rem .8rem;
+  border-radius: 2rem;
+  font-size: 1.2rem;
+}
+
+/* Portfolio Section (renamed to portal-box for reusability, and project-specific styling below) */
+.portfolio-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+}
+
+.portfolio-box {
+  position: relative;
+  border-radius: 2rem;
+  overflow: hidden;
+  display: flex;
+}
+
+.portfolio-box img {
+  width: 100%;
+  transition: .5s ease;
+}
+
+.portfolio-box:hover img {
+  transform: scale(1.1);
+}
+
+.portfolio-layer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0,0,0,.1), var(--main-color));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 4rem;
+  transform: translateY(100%);
+  transition: .5s ease;
+}
+
+.portfolio-box:hover .portfolio-layer {
+  transform: translateY(0);
+}
+
+.tech-used {
+  display: flex;
+  gap: .5rem;
+  margin: .5rem 0;
+}
+
+.tech-used span {
+  background: rgba(255, 255, 255, 0.2);
+  padding: .2rem .6rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+}
+
+/* Contact Section */
+.contact-info { /* Not used in this portal, but kept from original */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.contact-item { /* Not used in this portal, but kept from original */
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: var(--second-bg-color);
+  padding: 1.5rem;
+  border-radius: 1rem;
+}
+
+.contact-item i { /* Not used in this portal, but kept from original */
+  font-size: 2.5rem;
+  color: var(--main-color);
+}
+
+.contact-item a { /* Not used in this portal, but kept from original */
+  color: var(--main-color);
+}
+/* Footer Section */
+.footer {
+    background: var(--second-bg-color);
+    padding: 3rem 9%;
+    position: relative;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.footer-content h3 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: var(--main-color);
+}
+
+.footer-content p {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-social a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background: var(--bg-color);
+    border-radius: 50%;
+    font-size: 2rem;
+    color: var(--main-color);
+    transition: 0.3s ease;
+}
+
+.footer-social a:hover {
+    background: var(--main-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 1rem var(--main-color);
+}
+
+.footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-links a {
+    font-size: 1.3rem;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--main-color);
+}
+
+.footer-scroll-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background: var(--main-color);
+    border-radius: 50%;
+    font-size: 2rem;
+    color: var(--bg-color);
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+}
+
+.footer-scroll-top.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.footer-scroll-top:hover {
+    box-shadow: 0 0 1rem var(--main-color);
+}
+
+/* Auto-updating year */
+#year {
+    font-weight: 600;
+}
+/* Contact Form Styling */
+form {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem;
+  background: var(--second-bg-color);
+  border-radius: 1.5rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 238, 255, 0.1);
+}
+
+form h3 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--main-color);
+}
+
+form p {
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.input-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  gap: 1.5rem;
+}
+
+.input-box input {
+  flex: 1 1 45%;
+  padding: 1.5rem;
+  font-size: 1.6rem;
+  color: var(--text-color);
+  background: var(--bg-color);
+  border-radius: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.input-box input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.input-box input:focus,
+textarea:focus {
+  border-color: var(--main-color);
+  box-shadow: 0 0 10px rgba(0, 238, 255, 0.2);
+  outline: none;
+}
+
+textarea {
+  width: 100%;
+  padding: 1.5rem;
+  font-size: 1.6rem;
+  color: var(--text-color);
+  background: var(--bg-color);
+  border-radius: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  resize: vertical;
+  min-height: 150px;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+form .btn {
+  padding: 1.2rem 3.5rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+form .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 238, 255, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .input-box {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .input-box input {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  form {
+    padding: 2rem 1.5rem;
+  }
+}
+/* Portfolio Section */
+.portfolio { /* This entire section was for specific portfolio items, modified for general portal boxes */
+  background: var(--second-bg-color);
+}
+
+/* Original .portfolio-container was changed to .portal-section-container for generic use */
+.portfolio-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+}
+
+.portfolio-box { /* Renamed to .portal-box for generic use, and specific .feature-box, .student-card, .course-card below */
+  background: var(--bg-color);
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  transition: 0.5s ease;
+  border: 1px solid rgba(0, 238, 255, 0.1);
+}
+
+.portfolio-box:hover {
+  border-color: var(--main-color);
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 238, 255, 0.1);
+}
+
+.project-icon { /* Not used in this portal, but kept from original */
+  font-size: 5rem;
+  color: var(--main-color);
+  margin-bottom: 1.5rem;
+}
+
+.portfolio-content h4 { /* Not used in this portal, but kept from original */
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.portfolio-content p { /* Not used in this portal, but kept from original */
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+/* Duplicated tech-used from previous section, kept for clarity */
+.tech-used {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.tech-used span {
+  background: rgba(0, 238, 255, 0.1);
+  padding: 0.4rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.9rem;
+  color: var(--main-color);
+}
+
+.project-link { /* Not used in this portal, but kept from original */
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--main-color);
+  font-size: 1.1rem;
+  transition: 0.3s ease;
+}
+
+.project-link:hover { /* Not used in this portal, but kept for future use */
+  color: white;
+  text-decoration: underline;
+}
+
+.project-link i { /* Not used in this portal, but kept from original */
+  font-size: 1.2rem;
+}
+
+/* Custom styles for the University Portal based on the provided style.css */
+
+/* General layout adjustments */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 3.5rem;
+    margin-bottom: 3rem;
+    color: var(--text-color);
+}
+
+.section-title span {
+    color: var(--main-color);
+}
+
+/* Header specific for portal */
+.header .navbar a {
+    margin-left: 2rem; /* Adjusted spacing for portal navigation */
+}
+
+/* Hero/Dashboard section */
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    min-height: 100vh;
+    padding: 10rem 9% 2rem;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://placehold.co/1920x1080/1f242d/0ef?text=University+Campus') no-repeat center center/cover;
+    background-attachment: fixed; /* Added for parallax effect */
+    color: var(--text-color);
+}
+
+.home h1 {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.home p {
+    font-size: 1.8rem;
+    max-width: 800px;
+    margin-bottom: 3rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* About/Key Features section */
+.about {
+    display: flex;
+    flex-direction: column; /* Stack on small screens */
+    align-items: center;
+    gap: 4rem;
+    padding: 10rem 9% 2rem;
+    background: var(--second-bg-color);
+    text-align: center;
+}
+
+.about-content h2 {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
+.about-content h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--main-color);
+}
+
+.about-content p {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.feature-box {
+    background: var(--bg-color);
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    transition: 0.5s ease;
+    border: 1px solid rgba(0, 238, 255, 0.1);
+    margin-bottom: 2rem;
+    text-align: left; /* Align text left within feature box */
+}
+
+.feature-box i {
+    font-size: 4rem;
+    color: var(--main-color);
+    margin-bottom: 1rem;
+}
+
+.feature-box h4 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.feature-box p {
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.feature-box:hover {
+    border-color: var(--main-color);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 238, 255, 0.1);
+}
+
+/* Portal Sections (Students, Courses, Dashboard) - Reusing .services-container concept */
+.portal-section-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    /* padding: 10rem 9% 2rem; Removed from here as section already has padding */
+}
+
+.portal-box { /* Generic box for portal sections, used for dashboard cards too */
+    background: var(--second-bg-color);
+    padding: 3rem 2rem;
+    border-radius: 2rem;
+    text-align: center;
+    border: .2rem solid var(--bg-color);
+    transition: .5s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.portal-box:hover {
+    border-color: var(--main-color);
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(0, 238, 255, 0.3);
+}
+
+.portal-box i {
+    font-size: 5rem;
+    color: var(--main-color);
+    margin-bottom: 1rem;
+}
+
+.portal-box h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.portal-box p {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.portal-box .btn {
+    margin-top: 1rem;
+}
+
+/* Specific section styling */
+.portal-section { /* Added a common class for these sections */
+    padding: 10rem 9% 2rem;
+}
+
+#students {
+    background: var(--bg-color); /* Default background for students */
+}
+
+#courses { /* Override background for courses section for visual distinction */
+    background: var(--second-bg-color);
+}
+
+#dashboard {
+    background: var(--bg-color); /* Default background for dashboard */
+}
+
+#contact {
+    background: var(--second-bg-color); /* Default background for contact */
+}
+
+
+/* Interactive elements within portal sections */
+.course-card, .student-card {
+    background: var(--bg-color);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(0, 238, 255, 0.1);
+    text-align: left;
+    transition: 0.3s ease;
+}
+
+.course-card:hover, .student-card:hover {
+    border-color: var(--main-color);
+    box-shadow: 0 0 15px rgba(0, 238, 255, 0.2);
+    transform: translateY(-5px);
+}
+
+.course-card h4, .student-card h4 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--main-color);
+}
+
+.course-card p, .student-card p {
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.5rem;
+}
+
+.progress-bar-container {
+    width: 100%;
+    background-color: #444;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    overflow: hidden; /* Ensure progress bar stays within bounds */
+}
+
+.progress-bar {
+    height: 20px;
+    background-color: var(--main-color);
+    width: 0%; /* Will be updated by JS */
+    border-radius: 0.5rem;
+    text-align: center;
+    line-height: 20px; /* Center text vertically */
+    color: var(--bg-color);
+    font-size: 1.2rem;
+    transition: width 0.5s ease-in-out;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.dashboard-card {
+    background: var(--second-bg-color);
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 238, 255, 0.1);
+    transition: 0.5s ease;
+}
+
+.dashboard-card:hover {
+    border-color: var(--main-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 238, 255, 0.1);
+}
+
+.dashboard-card i {
+    font-size: 4rem;
+    color: var(--main-color);
+    margin-bottom: 1.5rem;
+}
+
+.dashboard-card h5 {
+    font-size: 2.2rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.dashboard-card p {
+    font-size: 1.6rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Buttons and interactive elements */
+.btn-secondary { /* Not used in this portal, but kept for future use */
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: transparent;
+    color: var(--main-color);
+    border: 1px solid var(--main-color);
+    border-radius: 4rem;
+    font-size: 1.4rem;
+    transition: .3s ease;
+    margin-top: 1rem;
+}
+
+.btn-secondary:hover { /* Not used in this portal, but kept for future use */
+    background: var(--main-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 1rem var(--main-color);
+}
+
+/* Modal for adding content */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px); /* Added for a modern look */
+}
+
+.modal-content {
+    background-color: var(--second-bg-color);
+    margin: auto;
+    padding: 3rem;
+    border: 1px solid var(--main-color);
+    border-radius: 1.5rem;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    position: relative;
+    animation: fadeInScale 0.3s ease-out forwards; /* Added entry animation */
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+.close-button {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--main-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content h3 {
+    font-size: 2.8rem;
+    color: var(--main-color);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.modal-content label {
+    display: block;
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-color);
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="number"],
+.modal-content textarea {
+    width: calc(100% - 2rem); /* Account for padding */
+    padding: 1.2rem;
+    margin-bottom: 1.5rem;
+    border-radius: 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-size: 1.6rem;
+}
+
+.modal-content input[type="text"]::placeholder,
+.modal-content input[type="number"]::placeholder,
+.modal-content textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.modal-content input[type="text"]:focus,
+.modal-content input[type="number"]:focus,
+.modal-content textarea:focus {
+  border-color: var(--main-color);
+  box-shadow: 0 0 10px rgba(0, 238, 255, 0.2);
+  outline: none;
+}
+
+.modal-content .btn {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.8rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    html {
+        font-size: 55%; /* Slightly smaller base font for tablets */
+    }
+    .header {
+        padding: 2rem 5%; /* Adjust header padding */
+    }
+    .navbar a {
+        margin-left: 2rem; /* Reduce nav item spacing */
+    }
+    section {
+        padding: 8rem 5% 2rem; /* Adjust section padding */
+    }
+    .home h1 {
+        font-size: 4rem;
+    }
+    .home p {
+        font-size: 1.6rem;
+    }
+    .section-title {
+        font-size: 3rem;
+    }
+    .dashboard-grid, .portal-section-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust grid columns */
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 50%; /* Even smaller base font for mobile */
+    }
+    .header {
+        flex-direction: column; /* Stack logo and nav vertically */
+        padding: 1.5rem 5%;
+        gap: 1rem;
+    }
+    .navbar {
+        width: 100%;
+        text-align: center;
+    }
+    .navbar a {
+        margin: 0 1rem; /* Adjust nav item spacing */
+        display: inline-block; /* Keep nav items inline */
+    }
+    .home h1 {
+        font-size: 3.5rem;
+    }
+    .home p {
+        font-size: 1.4rem;
+    }
+    .section-title {
+        font-size: 2.8rem;
+    }
+    .modal-content {
+        padding: 2rem;
+    }
+    .modal-content h3 {
+        font-size: 2.2rem;
+    }
+    .input-box {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .input-box input {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+    form {
+        padding: 2rem 1.5rem;
+    }
+}
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform; /* Optimize for animation performance */
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ensure the first section (home) is visible immediately */
+body > .home.fade-in-section {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* ... (existing CSS content) ... */
+
+/* Header styles */
+.header {
+  position: fixed;
+  width: 100%;
+  background: var(--bg-color);
+  display: flex; /* Ensures logo, text-logo, and navbar are side-by-side */
+  justify-content: space-between;
+  align-items: center; /* Vertically centers all items in the header */
+  padding: 2rem 9%;
+  z-index: 100;
+  transition: background 0.3s ease;
+}
+
+.header .logo-link {
+    display: flex; /* To align the logo image and text logo */
+    align-items: center; /* Vertically centers the logo image with the text logo */
+    margin-right: 1.5rem; /* Space between logo and "University Portal" text */
+    text-decoration: none; /* Remove underline from link */
+}
+
+.university-logo {
+    height: 4rem; /* Fixed height for consistency */
+    width: auto; /* Maintain aspect ratio */
+    border-radius: 0.5rem; /* Slightly rounded corners for the logo image */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.university-logo:hover {
+    transform: scale(1.05); /* Slight grow effect on hover */
+}
+
+.header .logo {
+  font-size: 2.5rem;
+  color: var(--text-color);
+  font-weight: 600;
+  /* Removed margin-left here if logo-link is used for overall spacing */
+}
+
+/* Adjustments for the whole left side of header */
+.header .logo-group { /* A new container for logo and text-logo, if you want them together */
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Space between image and text */
+}
+
+/* Responsive adjustments for header with logo */
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        padding: 1.5rem 5%;
+        gap: 1rem;
+        align-items: flex-start; /* Adjust alignment when stacked */
+    }
+    .header .logo-group {
+        width: 100%; /* Make the group take full width */
+        justify-content: center; /* Center the logo and text when stacked */
+        margin-bottom: 1rem;
+    }
+    .header .logo-link {
+        margin-right: 0.5rem; /* Smaller margin for mobile */
+    }
+    .navbar {
+        width: 100%;
+        text-align: center;
+    }
+    /* ... (rest of your existing mobile CSS) ... */
+}
